@@ -1,24 +1,61 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export function PortfolioSection() {
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const categories = [
+    { id: "all", label: "All" },
+    { id: "makeup", label: "Makeup" },
+    { id: "hairstyle", label: "Hair Style" },
+    { id: "haircut", label: "Hair Cut" },
+    { id: "facial", label: "Facial" }
+  ];
+
   const portfolioItems = [
     {
       id: 1,
-      image: "/attached_assets/parlour3.jpg",
-      title: "Makeup Studio",
+      image: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2",
+      title: "Bridal Makeup",
+      category: "makeup"
     },
     {
       id: 2,
-      image: "/attached_assets/parlour2.jpg",
-      title: "Professional Setup",
+      image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702",
+      title: "Party Makeup",
+      category: "makeup"
     },
     {
       id: 3,
-      image: "/attached_assets/parlour1.jpg",
-      title: "Modern Facilities",
+      image: "https://images.unsplash.com/photo-1560869713-da86a9ec94e6",
+      title: "Modern Hairstyle",
+      category: "hairstyle"
     },
+    {
+      id: 4,
+      image: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1",
+      title: "Trendy Haircut",
+      category: "haircut"
+    },
+    {
+      id: 5,
+      image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c",
+      title: "Facial Treatment",
+      category: "facial"
+    },
+    {
+      id: 6,
+      image: "https://images.unsplash.com/photo-1525348371953-ac094a7e3897",
+      title: "Professional Hairstyling",
+      category: "hairstyle"
+    }
   ];
+
+  const filteredItems = activeCategory === "all" 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === activeCategory);
 
   return (
     <section className="py-20 bg-primary/5">
@@ -31,43 +68,45 @@ export function PortfolioSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold mb-4">Our Work</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
             Explore our portfolio of makeup transformations and professional services
           </p>
+          <div className="flex flex-wrap gap-2 justify-center mb-8">
+            {categories.map((category) => (
+              <Button
+                key={category.id}
+                variant={activeCategory === category.id ? "default" : "outline"}
+                onClick={() => setActiveCategory(category.id)}
+                className="min-w-[100px]"
+              >
+                {category.label}
+              </Button>
+            ))}
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioItems.map((item, index) => (
+          {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="aspect-square rounded-2xl overflow-hidden relative group"
+              className="group relative aspect-square rounded-lg overflow-hidden"
             >
-              <img 
+              <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <Button variant="outline" className="text-white border-white hover:bg-white/20">
-                  View Details
-                </Button>
+              <div className="absolute inset-0 bg-black/50 flex items-end opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="p-4 text-white">
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                </div>
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button 
-            size="lg"
-            variant="outline"
-            className="hover:bg-primary/10"
-          >
-            View More Work
-          </Button>
         </div>
       </div>
     </section>
