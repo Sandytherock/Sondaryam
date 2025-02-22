@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -63,18 +62,6 @@ export function PortfolioSection() {
       image: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8",
       title: "Pedicure",
       category: "nails"
-    },
-    {
-      id: 9,
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874",
-      title: "Foot Spa",
-      category: "spa"
-    },
-    {
-      id: 10,
-      image: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2",
-      title: "Body Massage",
-      category: "spa"
     },
     {
       id: 11,
