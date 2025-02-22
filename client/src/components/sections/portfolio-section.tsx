@@ -11,7 +11,10 @@ export function PortfolioSection() {
     { id: "makeup", label: "Makeup" },
     { id: "hairstyle", label: "Hair Style" },
     { id: "haircut", label: "Hair Cut" },
-    { id: "facial", label: "Facial" }
+    { id: "facial", label: "Facial" },
+    { id: "nails", label: "Nail Care" },
+    { id: "spa", label: "Spa Services" },
+    { id: "threading", label: "Threading" }
   ];
 
   const portfolioItems = [
@@ -50,6 +53,42 @@ export function PortfolioSection() {
       image: "https://images.unsplash.com/photo-1525348371953-ac094a7e3897",
       title: "Professional Hairstyling",
       category: "hairstyle"
+    },
+    {
+      id: 7,
+      image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b",
+      title: "Manicure",
+      category: "nails"
+    },
+    {
+      id: 8,
+      image: "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8",
+      title: "Pedicure",
+      category: "nails"
+    },
+    {
+      id: 9,
+      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874",
+      title: "Foot Spa",
+      category: "spa"
+    },
+    {
+      id: 10,
+      image: "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2",
+      title: "Body Massage",
+      category: "spa"
+    },
+    {
+      id: 11,
+      image: "https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f",
+      title: "Eyebrow Threading",
+      category: "threading"
+    },
+    {
+      id: 12,
+      image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8",
+      title: "Beauty Package",
+      category: "facial"
     }
   ];
 
