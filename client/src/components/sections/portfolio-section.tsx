@@ -12,9 +12,7 @@ export function PortfolioSection() {
     { id: "hairstyle", label: "Hair Style" },
     { id: "haircut", label: "Hair Cut" },
     { id: "facial", label: "Facial" },
-    { id: "nails", label: "Nail Care" },
-    { id: "spa", label: "Spa Services" },
-    { id: "threading", label: "Threading" }
+    { id: "nails", label: "Nail Care" }
   ];
 
   const portfolioItems = [
