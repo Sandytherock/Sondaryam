@@ -1,5 +1,5 @@
+
 import { motion } from "framer-motion";
-import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Contact() {
   return (
@@ -8,14 +8,11 @@ export default function Contact() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="container mx-auto px-4 text-center mb-12"
+        className="container mx-auto px-4"
       >
-        <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Get in touch with us for appointments and inquiries. We're here to help you look and feel your best.
-        </p>
+        <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
+        {/* Contact form and content here */}
       </motion.div>
-      <ContactSection />
     </main>
   );
 }
